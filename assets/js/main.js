@@ -70,11 +70,14 @@
 
   /* ============ SCROLL REVEAL ============ */
   function initReveal() {
+    const revealSel = '.reveal, .reveal-left, .reveal-scale, .reveal-fade';
+    const els = document.querySelectorAll(revealSel);
+
     if (!('IntersectionObserver' in window)) {
-      // Fallback: make everything visible
-      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      els.forEach(el => el.classList.add('is-visible'));
       return;
     }
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -84,9 +87,45 @@
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
     );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    els.forEach(el => observer.observe(el));
+  }
+
+  /* ============ NUMBER COUNTER ============ */
+  function initCounters() {
+    const vals = document.querySelectorAll('.nrow .val[data-count]');
+    if (!vals.length || !('IntersectionObserver' in window)) return;
+
+    function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+    function animateCount(el) {
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      const duration = 1200;
+      const start = performance.now();
+
+      function tick(now) {
+        const elapsed = Math.min((now - start) / duration, 1);
+        const val = easeOutQuart(elapsed) * target;
+        const display = target >= 100 ? Math.round(val) : (val < 10 ? val.toFixed(1) : Math.round(val));
+        el.textContent = prefix + display + suffix;
+        if (elapsed < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    vals.forEach(el => obs.observe(el));
   }
 
   /* ============ WORK TABS ============ */
@@ -218,6 +257,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initReveal();
+    initCounters();
     initWorkTabs();
     initInsightsFilter();
     initContactForm();
