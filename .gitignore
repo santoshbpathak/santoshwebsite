@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V5
+.Trashes
+
+# IDE
+.vscode/
+.idea/
+
+# Handoff source (not needed in repo)
+handoff/
+*.zip
+
+# Claude settings
+.claude/

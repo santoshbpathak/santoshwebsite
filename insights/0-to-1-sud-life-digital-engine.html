@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>0 to 1 — How I built SUD Life's digital engine · Santosh B. Pathak</title>
+  <meta name="description" content="No team. No SEO. No MarTech. No leads. Three years later: 727K users, 17M events, 30K leads. The full architecture, with the boring parts left in." />
+  <link rel="canonical" href="https://santoshbpathak.com/insights/0-to-1-sud-life-digital-engine.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://santoshbpathak.com/insights/0-to-1-sud-life-digital-engine.html" />
+  <meta property="og:title" content="0 to 1 — How I built SUD Life's digital engine" />
+  <meta property="og:description" content="No team. No SEO. No MarTech. No leads. Three years later: 727K users, 17M events, 30K leads." />
+  <meta property="og:image" content="https://santoshbpathak.com/assets/img/og-home.jpg" />
+  <meta property="article:published_time" content="2026-03-01" />
+  <meta property="article:author" content="Santosh B. Pathak" />
+  <meta property="article:tag" content="BFSI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="0 to 1 — How I built SUD Life's digital engine" />
+  <meta name="twitter:description" content="No team. No SEO. No MarTech. No leads. Three years later: 727K users, 17M events, 30K leads." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "0 to 1 — How I built SUD Life's digital engine",
+    "description": "No team. No SEO. No MarTech. No leads. Three years later: 727K users, 17M events, 30K leads.",
+    "author": { "@type": "Person", "name": "Santosh B. Pathak", "url": "https://santoshbpathak.com" },
+    "datePublished": "2026-03-01",
+    "publisher": { "@type": "Person", "name": "Santosh B. Pathak" },
+    "url": "https://santoshbpathak.com/insights/0-to-1-sud-life-digital-engine.html"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Geist:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Santosh B. Pathak — home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Santosh B. Pathak</span>
+      </a>
+      <div class="nav__links" id="nav-links">
+        <a href="/about.html" class="nav__link">About</a>
+        <a href="/work.html" class="nav__link">Work</a>
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/insights.html" class="nav__link nav__link--active">Insights</a>
+        <a href="/video.html" class="nav__link">Video</a>
+        <a href="/contact.html" class="nav__cta">Work with me</a>
+      </div>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main" class="page">
+    <article class="article">
+
+      <header class="article__head">
+        <div class="container">
+          <a href="/insights.html" class="article__back" aria-label="Back to all insights">← All insights</a>
+          <div class="article__meta">
+            <span class="tag signal">BFSI</span>
+            <span class="mono dim" style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase">Mar 2026 · 14 min read</span>
+          </div>
+          <h1 class="article__title"><span class="serif">0 to 1</span> — How I built SUD Life's digital engine<span class="signal">.</span></h1>
+          <p class="article__dek">No team. No SEO. No MarTech. No leads. Three years later: 727K users, 17M events, 30K leads. The full architecture, with the boring parts left in.</p>
+          <div class="article__byline">
+            <div class="article__byline-dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-family:var(--f-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)">Written by</div>
+              <div style="font-family:var(--f-sans);font-size:15px;color:var(--fg);margin-top:4px">Santosh B. Pathak <span class="serif" style="color:var(--fg-dim)">· Mumbai</span></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="article__body">
+        <div class="container article__col">
+
+          <p class="art__lede">
+            When I joined SUD Life in late 2022, the digital marketing function existed only on the org chart. There was no team. No SEO. No MarTech stack. No real lead pipeline. The website was a static brochure. Analytics was Google Analytics with one untouched view. The brief was three words long: <em class="serif">build it</em>.
+          </p>
+
+          <p>This is the unvarnished version of what I built, why I sequenced it the way I did, and the three decisions I'd reverse if I started again today.</p>
+
+          <h2 class="art__h2">The starting position</h2>
+          <p>Star Union Dai-ichi Life is a joint venture between Bank of India, Union Bank of India, and Dai-ichi Life Holdings — a Tokyo-listed insurance major. A serious institution in a serious category. But the digital surface was, in October 2022, somewhere between dormant and decorative.</p>
+          <ul class="art__list">
+            <li>No in-house digital team. Marketing was four people, all on traditional brand.</li>
+            <li>Website on a legacy CMS, no measurement, no leads captured.</li>
+            <li>Two social handles with a combined 53K followers, dormant.</li>
+            <li>Zero MarTech. No CDP, no analytics layer, no LMS, no email infrastructure.</li>
+            <li>Annual budget: Rs. 7 Cr. Audit-controlled. IRDAI-supervised.</li>
+          </ul>
+          <p>The pressure was outsized. Bank of India and Union Bank distribute SUD Life policies through their branches — the digital function had to support, not compete with, an enormous physical network. And IRDAI compliance meant we couldn't do anything fast, loose, or borrowed from D2C playbooks.</p>
+
+          <blockquote class="art__pull">
+            The job wasn't to copy a fintech. The job was to build a digital function a regulated insurer could actually run.
+          </blockquote>
+
+          <h2 class="art__h2">Layer 01 — Foundation</h2>
+          <p>You can't ship a MarTech stack on top of a brochure site. Foundation first. We rebuilt the entire SUD Life web property on Strapi (headless CMS), with WCAG 2.1 AA compliance from day one and modular components designed to scale to hundreds of pages without a re-platform.</p>
+          <p>This single decision unlocked everything else. Hyperlocal SEO at scale. Product-led landing pages. Editorial content modules. A/B testable hero blocks. All of it, served from a content backend the marketing team could actually use without filing an IT ticket.</p>
+
+          <h2 class="art__h2">Layer 02 — MarTech</h2>
+          <p>The stack we landed on, in order of installation:</p>
+          <ul class="art__list">
+            <li><strong>GA4</strong> — measurement first, before any acquisition spend resumed.</li>
+            <li><strong>Looker Studio</strong> — boardroom-ready dashboards within four weeks.</li>
+            <li><strong>CleverTap</strong> — CDP, segmentation, lifecycle messaging.</li>
+            <li><strong>LeadSquared</strong> — LMS, real-time enrichment, sub-2-minute lead-to-call.</li>
+            <li><strong>SEMrush + Konnect Insights</strong> — competitive and social intelligence.</li>
+          </ul>
+          <p>Three years later this stack tracks <strong>17M events</strong> a year across web, app, and CRM. Every rupee of spend is attributable. Every funnel stage is visible. Every cohort is queryable. It is not glamorous. It is the most important thing we built.</p>
+
+          <h2 class="art__h2">Layer 03 — Lead Pipeline</h2>
+          <p>Lead-to-call latency is the unglamorous KPI that decides whether digital makes any money in insurance. A lead more than five minutes cold has a meaningfully lower close rate. We engineered the pipeline to deliver under two minutes — from form submission to a live phone call from a licensed advisor.</p>
+          <p>The mechanics: web form → LeadSquared → enrichment (CRM lookup, propensity scoring) → routing → telephony, with the entire chain monitored. In FY26 we delivered <strong>30,000 qualified leads</strong>, a number that did not exist as a category at this organisation 24 months earlier.</p>
+
+          <h2 class="art__h2">Layer 04 — Distribution</h2>
+          <p>Acquisition was the third quarter's project, not the first. By the time we turned it on, the stack could measure what worked. We invested in two compounding channels — hyperlocal SEO and earned social — over expensive paid acquisition.</p>
+          <p>The numbers:</p>
+          <ul class="art__list">
+            <li><strong>727K users</strong> on the website, 35.2% YoY growth.</li>
+            <li><strong>170+ hyperlocal pages</strong> shipped, 166 Google Business Listings claimed and optimised.</li>
+            <li><strong>Average keyword rank</strong> from 40.5 to 11.4. 202 keywords at #1.</li>
+            <li><strong>Instagram +900%</strong> (3K → 30.2K). Facebook +90% (50K → 97K+).</li>
+          </ul>
+
+          <h2 class="art__h2">Layer 05 — Innovation</h2>
+          <p>Once the engine was running, we had earned the right to build new things. The first was <strong>Desh Ka Insurance (DKI)</strong> — a Progressive Web App enabling rural POS agents to onboard, train, and sell microinsurance. I pitched it internally, built the business case, and secured <strong>$300K</strong> from the Dai-ichi Life Innovation Fund. ($100K PoC + $200K seed.)</p>
+          <p>The next is the <strong>in-house AI Content Studio</strong> — a generative-AI content production system with IRDAI compliance baked in. Target: 3x content output, 2x Share of Voice in Indian life insurance by FY27. The CDP-led personalisation engine sits behind it.</p>
+
+          <blockquote class="art__pull">
+            Innovation that doesn't go to a balance sheet is theatre. Build platforms with revenue lines and audit trails attached.
+          </blockquote>
+
+          <h2 class="art__h2">Three things I'd reverse</h2>
+          <p><strong>One — measurement before media.</strong> I'd have shipped GA4 and CleverTap one quarter earlier, even if it delayed the first paid campaign by 60 days. Months of media spend in the first window were under-instrumented.</p>
+          <p><strong>Two — hyperlocal pages too fast.</strong> We shipped 170+ pages in a single sprint. Half could have been better. A staged rollout would have produced better long-tail ranking with less editorial debt.</p>
+          <p><strong>Three — innovation fund pitch earlier.</strong> DKI got funded in year two. The board appetite existed in year one. I was protecting the foundation work rather than parallelising. I wouldn't make that mistake again.</p>
+
+          <h2 class="art__h2">What's next</h2>
+          <p>The next 18 months are about compounding. AI Studio goes live. CDP personalisation goes from segments to journeys. DKI scales from pilot to production. None of this is glamorous; all of it pays interest.</p>
+
+          <p class="art__sign">If you're a BFSI leader building something similar — or trying to — I'd be glad to compare notes. Email's at the bottom of every page.</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- PREV / NEXT -->
+    <nav class="article__nav" aria-label="Article navigation">
+      <div class="container article__nav-grid">
+        <a href="/insights/awards-are-receipts.html" class="article__nav-card">
+          <span class="article__nav-label">← Previous</span>
+          <span class="article__nav-title">What 70+ industry awards <span class="serif">don't</span> tell you</span>
+          <span class="article__nav-meta">BFSI · Oct 2025</span>
+        </a>
+        <a href="/insights/ai-studio-playbook-regulated-industries.html" class="article__nav-card article__nav-card--right">
+          <span class="article__nav-label">Next →</span>
+          <span class="article__nav-title">The in-house AI studio playbook for <span class="serif">regulated</span> industries</span>
+          <span class="article__nav-meta">AI · Feb 2026</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <div class="container newsletter__inner">
+        <div>
+          <h2 id="newsletter-heading">One <span class="serif">letter</span><br>per month<span class="signal">.</span></h2>
+          <p>Long-form essays like the one above, sent the first Tuesday of every month. No drip funnels. No upsell.</p>
+        </div>
+        <form class="newsletter__form" aria-label="Newsletter subscription">
+          <input class="newsletter__input" placeholder="your@email.com" required type="email" autocomplete="email" aria-label="Email address" />
+          <input class="newsletter__input" placeholder="Where you work (optional)" aria-label="Organisation (optional)" />
+          <button type="submit" class="btn btn--gold btn--full btn--large">Subscribe — first Tuesday <span class="arr" aria-hidden="true">→</span></button>
+          <p class="mono dim" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase">Unsubscribe in one click.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo"><span class="dot" aria-hidden="true"></span><span>Santosh B. Pathak</span></div>
+        <div class="footer__tag">I don't run digital marketing. I build the engine.</div>
+        <div class="mono dim" style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;margin-top:8px">Mumbai · Available <span class="signal">FY27</span></div>
+      </div>
+      <div>
+        <div class="footer__col-label">Site</div>
+        <div class="footer__links">
+          <a class="footer__link" href="/about.html">About</a>
+          <a class="footer__link" href="/work.html">Work</a>
+          <a class="footer__link" href="/services.html">Services</a>
+          <a class="footer__link" href="/insights.html">Insights</a>
+          <a class="footer__link" href="/video.html">Video</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-label">Contact</div>
+        <div class="footer__links">
+          <a class="footer__link" href="mailto:santosh.pathak@live.com">Email</a>
+          <a class="footer__link" href="https://www.linkedin.com/in/santoshbpathak/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="footer__link" href="tel:+918108119888">+91 81081 19888</a>
+          <a class="footer__link" href="/contact.html">Inquiry form →</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-label">Now</div>
+        <div class="footer__links">
+          <span class="footer__link" style="color:var(--fg)">Sr. Manager — Marketing</span>
+          <span class="footer__link">Star Union Dai-ichi Life</span>
+          <span class="footer__link">Architecting AI Content Studio · FY27</span>
+          <span class="footer__link">Open to AVP / Director conversations</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div>© 2026 Santosh B. Pathak · All rights reserved</div>
+      <div>
+        <a href="https://www.linkedin.com/in/santoshbpathak/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:santosh.pathak@live.com">santosh.pathak@live.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
